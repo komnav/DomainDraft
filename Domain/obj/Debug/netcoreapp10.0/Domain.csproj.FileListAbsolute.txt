@@ -1,0 +1,11 @@
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\bin\Debug\netcoreapp10.0\Domain.deps.json
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\bin\Debug\netcoreapp10.0\Domain.dll
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\bin\Debug\netcoreapp10.0\Domain.pdb
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\Domain.AssemblyInfo.cs
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\Domain.dll
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\refint\Domain.dll
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\Domain.pdb
+C:\Users\Navruz\RiderProjects\DomainDraft\Domain\obj\Debug\netcoreapp10.0\ref\Domain.dll

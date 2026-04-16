@@ -26,7 +26,7 @@ namespace DomainDraft.Infrastructure.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("DomainDraft.Domain.Bundle", b =>
+            modelBuilder.Entity("DomainDraft.WebApi.Domain.Bundle", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace DomainDraft.Infrastructure.Persistence.Migrations
                     b.ToTable("Bundles");
                 });
 
-            modelBuilder.Entity("DomainDraft.Domain.Customer", b =>
+            modelBuilder.Entity("DomainDraft.WebApi.Domain.Customer", b =>
                 {
                     b.Property<Guid>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -52,7 +52,7 @@ namespace DomainDraft.Infrastructure.Persistence.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("DomainDraft.Domain.Merchant", b =>
+            modelBuilder.Entity("DomainDraft.WebApi.Domain.Merchant", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace DomainDraft.Infrastructure.Persistence.Migrations
                     b.ToTable("Merchants");
                 });
 
-            modelBuilder.Entity("DomainDraft.Domain.Order", b =>
+            modelBuilder.Entity("DomainDraft.WebApi.Domain.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,7 +98,7 @@ namespace DomainDraft.Infrastructure.Persistence.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("DomainDraft.Domain.Product", b =>
+            modelBuilder.Entity("DomainDraft.WebApi.Domain.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,27 +120,27 @@ namespace DomainDraft.Infrastructure.Persistence.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("DomainDraft.Domain.Order", b =>
+            modelBuilder.Entity("DomainDraft.WebApi.Domain.Order", b =>
                 {
-                    b.HasOne("DomainDraft.Domain.Bundle", "Bundle")
+                    b.HasOne("DomainDraft.WebApi.Domain.Bundle", "Bundle")
                         .WithMany()
                         .HasForeignKey("BundleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DomainDraft.Domain.Customer", "Customer")
+                    b.HasOne("DomainDraft.WebApi.Domain.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DomainDraft.Domain.Merchant", "Merchant")
+                    b.HasOne("DomainDraft.WebApi.Domain.Merchant", "Merchant")
                         .WithMany()
                         .HasForeignKey("MerchantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DomainDraft.Domain.Product", "Product")
+                    b.HasOne("DomainDraft.WebApi.Domain.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)

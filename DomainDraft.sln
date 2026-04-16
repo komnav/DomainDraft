@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDraft", "DomainDraft\DomainDraft.csproj", "{155D132D-9D9A-41EA-A79E-1315E7B9F6BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDraft.WebApi", "DomainDraft.WebApi\DomainDraft.WebApi.csproj", "{155D132D-9D9A-41EA-A79E-1315E7B9F6BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{4FC359C3-160E-4FBD-81DB-56D0BA80A7EA}"
 EndProject

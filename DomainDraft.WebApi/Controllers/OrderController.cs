@@ -1,6 +1,6 @@
 using Application.DTOs;
 using Application.Services;
-using Domain.Domain;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DomainDraft.WebApi.Controllers;

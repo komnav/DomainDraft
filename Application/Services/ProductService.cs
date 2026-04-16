@@ -1,7 +1,7 @@
 using Application.Cache;
 using Application.DTOs;
 using Application.Repositories;
-using Domain.Domain;
+using Domain.Entities;
 
 namespace Application.Services;
 

@@ -1,4 +1,6 @@
-namespace Domain.Domain;
+using Domain.Enums;
+
+namespace Domain.Entities;
 
 public class Order
 {
@@ -13,4 +15,6 @@ public class Order
     public Guid BundleId { get; set; }
     public Bundle Bundle { get; set; }
     public Product Product { get; set; }
+    
+    public OrderStatus OrderStatus { get; set; }
 }

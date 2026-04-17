@@ -8,5 +8,5 @@ public interface IProductService
     Task<int>  CreateAsync(ProductDto request);
     Task<int>  UpdateAsync(Guid id, string name);
     Task<int>  DeleteAsync(Guid id);
-    Task<List<Product>>  GetAllAsync();
+    Task<List<Product>>  GetAllAsync(int? page);
 }

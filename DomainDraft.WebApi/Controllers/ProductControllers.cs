@@ -29,8 +29,8 @@ public class ProductControllers(
     }
 
     [HttpGet("all")]
-    public async Task<List<Product>> GetAllAsync()
+    public async Task<List<Product>> GetAllAsync(int? requestPage)
     {
-        return await productService.GetAllAsync();
+        return await productService.GetAllAsync(requestPage);
     }
 }

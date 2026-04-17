@@ -11,6 +11,7 @@ public class ProductService(
 
 {
     const string CacheKey = "Get_All_Products";
+    private const int PageSize = 4;
 
     public async Task<int> CreateAsync(ProductDto request)
     {
@@ -54,14 +55,15 @@ public class ProductService(
         return 0;
     }
 
-    public async Task<List<Product>> GetAllAsync()
+    public async Task<List<Product>> GetAllAsync(int? page)
     {
+        
         var cachedData=  cacheLayer.GetCache<List<Product>>(CacheKey);
         if (cachedData != null)
         {
             return cachedData;
         }
-        var listOfProducts = await productRepository.GetAllAsync();
+        var listOfProducts = await productRepository.GetAllAsync(page, PageSize);
         cacheLayer.SetToCache(CacheKey, listOfProducts, TimeSpan.FromHours(12));
         return listOfProducts;
     }

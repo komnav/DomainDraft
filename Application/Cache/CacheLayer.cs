@@ -15,8 +15,15 @@ public class CacheLayer(IMemoryCache memoryCache) : ICacheLayer
         return value;
     }
 
-    public void SetToCache<T>(string key, T value, TimeSpan expiredTime) where T : class
+    public void SetToCache<T>(string key, T value, TimeSpan expiredTime)
     {
         memoryCache.Set(key, value, expiredTime);
+    }
+    
+    public (bool KeyExist, T? Value) TryGet<T>(string key)
+    {
+         memoryCache.TryGetValue(key, out T? valueFromCache);
+
+        return (true, valueFromCache);
     }
 }

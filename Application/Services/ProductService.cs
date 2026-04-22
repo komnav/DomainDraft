@@ -10,8 +10,9 @@ public class ProductService(
     ICacheLayer cacheLayer) : IProductService
 
 {
-    const string CacheKey = "Get_All_Products";
     private const int PageSize = 4;
+    private const string CacheKey = "Get_All_Products_by_page_";
+    const string IsValidKey = "Product_is_valid";
 
     public async Task<int> CreateAsync(ProductDto request)
     {
@@ -24,7 +25,7 @@ public class ProductService(
         var addProduct = await productRepository.CreateAsync(newProduct);
         if (addProduct > 0)
         {
-            cacheLayer.RemoveCache(CacheKey);
+            InvalidateKey(IsValidKey);
             return 1;
         }
 
@@ -35,8 +36,8 @@ public class ProductService(
     {
         var update = await productRepository.UpdateAsync(id, name);
         if (update > 0)
-        { 
-            cacheLayer.RemoveCache(CacheKey);
+        {
+            InvalidateKey(IsValidKey);
             return 1;
         }
 
@@ -48,23 +49,37 @@ public class ProductService(
         var delete = await productRepository.DeleteAsync(id);
         if (delete > 0)
         {
-            cacheLayer.RemoveCache(CacheKey);
+            InvalidateKey(IsValidKey);
             return 1;
         }
 
         return 0;
     }
 
-    public async Task<List<Product>> GetAllAsync(int? page)
+    public async Task<List<Product>> GetAllAsync(int? requestPage)
     {
-        
-        var cachedData=  cacheLayer.GetCache<List<Product>>(CacheKey);
-        if (cachedData != null)
+        var page = requestPage ?? 1;
+        var isValid = cacheLayer.TryGet<bool>(IsValidKey);
+
+        if (isValid is { KeyExist: true })
         {
-            return cachedData;
+            var cached = cacheLayer.TryGet<List<Product>>($"{CacheKey}{page}");
+            if (cached is { KeyExist: true, Value: not null })
+            {
+                return cached.Value;
+            }
         }
+
         var listOfProducts = await productRepository.GetAllAsync(page, PageSize);
-        cacheLayer.SetToCache(CacheKey, listOfProducts, TimeSpan.FromHours(12));
+
+        cacheLayer.SetToCache($"{CacheKey}{page}", listOfProducts, TimeSpan.FromMinutes(10));
+        cacheLayer.SetToCache(IsValidKey, true, TimeSpan.FromMinutes(10));
+
         return listOfProducts;
+    }
+
+    private void InvalidateKey(string key)
+    {
+        cacheLayer.RemoveCache(key);
     }
 }

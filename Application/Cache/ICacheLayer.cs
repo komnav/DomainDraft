@@ -7,5 +7,7 @@ public interface ICacheLayer
 
     T? GetCache<T>(string key) where T : class;
 
-    void SetToCache<T>(string key, T value, TimeSpan expiredTime) where T : class;
+    void SetToCache<T>(string key, T value, TimeSpan expiredTime);
+    
+    (bool KeyExist, T? Value) TryGet<T>(string key);
 }

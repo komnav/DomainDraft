@@ -26,9 +26,8 @@ public class ProductRepository(ApplicationDbContext dbContext) : IProductReposit
         return await dbContext.Products.Where(x => x.Id == id).ExecuteDeleteAsync();
     }
 
-    public async Task<List<Product>> GetAllAsync(int? requestPage, int pageSize)
+    public async Task<List<Product>> GetAllAsync(int page, int pageSize)
     {
-        var page = requestPage ?? 1;
         return await dbContext.Products
             .Skip((page - 1) * pageSize)
             .Take(pageSize)

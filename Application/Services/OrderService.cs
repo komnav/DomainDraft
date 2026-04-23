@@ -26,7 +26,7 @@ public class OrderService(
         var addOrder = await orderRepository.CreateOrderAsync(newOrder);
         if (addOrder > 0)
         {
-            cacheLayer.RemoveCache("Get_All_Products");
+            cacheLayer.ResetCache();
             return new Order()
             {
                 CustomerId = request.CustomerId,

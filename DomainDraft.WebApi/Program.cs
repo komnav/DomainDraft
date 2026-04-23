@@ -21,7 +21,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IRecommendedService, RecommendedService>();
-builder.Services.AddScoped<ICacheLayer, CacheLayer>();
+builder.Services.AddSingleton<ICacheLayer, CacheLayer>();
 builder.Services.AddMemoryCache();
 
 var app = builder.Build();

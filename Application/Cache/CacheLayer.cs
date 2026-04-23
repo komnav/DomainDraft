@@ -4,9 +4,16 @@ namespace Application.Cache;
 
 public class CacheLayer(IMemoryCache memoryCache) : ICacheLayer
 {
-    public void RemoveCache(string key)
+    private List<string> _keys = [];
+
+    public void ResetCache()
     {
-        memoryCache.Remove(key);
+        foreach (var key in _keys)
+        {
+            memoryCache.Remove(key);
+        }
+
+        _keys.Clear();
     }
 
     public T? GetCache<T>(string key) where T : class
@@ -18,12 +25,6 @@ public class CacheLayer(IMemoryCache memoryCache) : ICacheLayer
     public void SetToCache<T>(string key, T value, TimeSpan expiredTime)
     {
         memoryCache.Set(key, value, expiredTime);
-    }
-    
-    public (bool KeyExist, T? Value) TryGet<T>(string key)
-    {
-         memoryCache.TryGetValue(key, out T? valueFromCache);
-
-        return (true, valueFromCache);
+        _keys.Add(key);
     }
 }

@@ -2,6 +2,9 @@ using Application.Cache;
 using Application.Repositories;
 using Application.Services;
 using Infrastructure;
+using Infrastructure.Cache;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

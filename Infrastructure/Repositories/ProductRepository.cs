@@ -1,8 +1,8 @@
+using Application.Repositories;
 using Domain.Entities;
-using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Repositories;
+namespace Infrastructure.Repositories;
 
 public class ProductRepository(ApplicationDbContext dbContext) : IProductRepository
 {

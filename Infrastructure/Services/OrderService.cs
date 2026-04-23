@@ -1,9 +1,10 @@
 using Application.Cache;
 using Application.DTOs;
 using Application.Repositories;
+using Application.Services;
 using Domain.Entities;
 
-namespace Application.Services;
+namespace Infrastructure.Services;
 
 public class OrderService(
     IOrderRepository orderRepository,

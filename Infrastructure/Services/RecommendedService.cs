@@ -1,7 +1,8 @@
 using Application.Cache;
+using Application.Services;
 using Domain.Entities;
 
-namespace Application.Services;
+namespace Infrastructure.Services;
 
 public class RecommendedService(
     ICacheLayer cacheLayer)

@@ -1,7 +1,7 @@
+using Application.Repositories;
 using Domain.Entities;
-using Infrastructure;
 
-namespace Application.Repositories;
+namespace Infrastructure.Repositories;
 
 public class OrderRepository(ApplicationDbContext applicationDbContext) : IOrderRepository
 {

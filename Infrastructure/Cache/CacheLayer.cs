@@ -1,6 +1,7 @@
+using Application.Cache;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace Application.Cache;
+namespace Infrastructure.Cache;
 
 public class CacheLayer(IMemoryCache memoryCache) : ICacheLayer
 {
